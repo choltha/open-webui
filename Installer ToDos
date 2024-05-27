@@ -1,0 +1,23 @@
+Installer ToDos:
+
+1. Install docker
+2. Install ollama (outside of docker, if no nvidia card is present)
+3. pull docker image
+4. run docker container
+    - Flags? Autoupdate? etc.?
+    - autopull, autorestart ? Erstmal ohne ...
+
+    docker run -d -p 3100:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main
+
+    auch:
+    docker run --rm --volume /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once open-webui
+    vermutlich nur mit restart sinnig `--restart always`
+5. Setup mit admin ??
+6. pull appropriate ollama setup
+7. choose embeddings - where to log?
+8. select/enable reranker!
+
+
+mount /data/doocs?
+
+whisper is "base" - not sure how well it works. One could use a lot better model if gpu is enabled and the container can access them! CPU only base is probably good choice
