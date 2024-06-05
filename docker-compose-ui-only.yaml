@@ -14,16 +14,12 @@ services:
     environment:
       - 'OLLAMA_BASE_URL=http://host.docker.internal:11434'
       - 'WEBUI_SECRET_KEY='
-      # - 'WHISPER_MODEL=large-v2' too slow?  problem seems to be the pre-whisper-processing also lang detection takes way to long
-      - 'WHISPER_MODEL=small'
-      - 'WHISPER_MODEL_AUTO_UPDATE=true'
-      - 'RAG_EMBEDDING_MODEL=mixedbread-ai/mxbai-embed-large-v1'
-      - 'RAG_EMBEDDING_MODEL_AUTO_UPDATE=true'
-      - 'RAG_RERANKING_MODEL=mixedbread-ai/mxbai-rerank-large-v1'
-      - 'RAG_RERANKING_MODEL_AUTO_UPDATE=true'
+    env_file:
+      - .env
     extra_hosts:
       - host.docker.internal:host-gateway
     restart: unless-stopped
+
 
 volumes:
   open-webui: {}
