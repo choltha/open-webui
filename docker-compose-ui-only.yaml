@@ -23,7 +23,7 @@ services:
       - 'RAG_RERANKING_MODEL_AUTO_UPDATE=true'
     extra_hosts:
       - host.docker.internal:host-gateway
-    # restart: unless-stopped
+    restart: unless-stopped
 
 volumes:
   open-webui: {}
