@@ -14,6 +14,19 @@ import os
 import inspect
 import asyncio
 
+
+print("###############################")
+print("Waiting for debugpy connection!")
+print("###############################")
+import os
+import debugpy
+
+debugpy.listen(("0.0.0.0", 5678))
+debugpy.wait_for_client()
+debugpy.breakpoint()
+
+
+
 from fastapi import FastAPI, Request, Depends, status, UploadFile, File, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
