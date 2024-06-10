@@ -22,8 +22,8 @@ import os
 import debugpy
 
 debugpy.listen(("0.0.0.0", 5678))
-debugpy.wait_for_client()
-debugpy.breakpoint()
+# debugpy.wait_for_client()
+# debugpy.breakpoint()
 
 
 
