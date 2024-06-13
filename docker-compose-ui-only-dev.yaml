@@ -5,7 +5,7 @@ services:
       args:
         OLLAMA_BASE_URL: '/ollama'
       dockerfile: Dockerfile
-    # image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
+    image: open-webui-dev:local
     container_name: open-webui-dev
     volumes:
       - ./build_cache/node_modules:/app/node_modules
