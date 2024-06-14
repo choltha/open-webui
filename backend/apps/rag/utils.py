@@ -386,6 +386,7 @@ def generate_openai_batch_embeddings(
         )
         r.raise_for_status()
         data = r.json()
+        log.info(f"generated embeddings for {texts}")
         if "data" in data:
             return [elem["embedding"] for elem in data["data"]]
         else:

@@ -942,6 +942,7 @@ def store_docs_in_vector_db(docs, collection_name, overwrite: bool = False) -> b
         ):
             collection.add(*batch)
 
+        log.info(f"finished storing {collection_name}")
         return True
     except Exception as e:
         log.exception(e)
