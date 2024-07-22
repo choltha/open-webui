@@ -25,7 +25,10 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 
-COPY . .
+COPY static/ static/
+COPY scripts/ scripts/
+COPY src/ src/
+COPY *.ts *rc *js ./
 ENV APP_BUILD_HASH=${BUILD_HASH}
 RUN npm run build
 
@@ -143,8 +146,9 @@ RUN pip3 install uv && \
 
 # copy built frontend files
 COPY --chown=$UID:$GID --from=build /app/build /app/build
-COPY --chown=$UID:$GID --from=build /app/CHANGELOG.md /app/CHANGELOG.md
 COPY --chown=$UID:$GID --from=build /app/package.json /app/package.json
+
+COPY --chown=$UID:$GID CHANGELOG.md /app/CHANGELOG.md
 
 # copy backend files
 COPY --chown=$UID:$GID ./backend .
