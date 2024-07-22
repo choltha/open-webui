@@ -1006,6 +1006,7 @@ def store_docs_in_vector_db(
         ):
             collection.add(*batch)
 
+        log.info(f"finished storing {collection_name}")
         return True
     except Exception as e:
         if e.__class__.__name__ == "UniqueConstraintError":
